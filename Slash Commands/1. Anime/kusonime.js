@@ -36,7 +36,7 @@ module.exports.run = async (client, passedOptions, interaction) => {
                                         {name: 'Durasi', value: search.durasi, inlime: true},
                                         {name: 'Tanggal Rilis', value: search.release, inline: true}
                                         ],
-                              thumbnail: search.thumbnail}, {
+                              thumbnail: {url: search.thumbnail} }, {
                                 title: 'link download',
                                 color: 'RANDOM',
                                 fields: oriPlaceHolder 
