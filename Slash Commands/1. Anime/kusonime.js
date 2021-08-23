@@ -8,7 +8,7 @@ module.exports.options = [{
   type: 3,
   required: true
 }]
-module.exports.run = async function (client, passedOptions, interaction) => {
+module.exports.run = async (client, passedOptions, interaction) => {
   let query = passedOptions[0].value.split(' ').join('-')
   let search = await axios.get(`http://posantai.bugs.today/kusonime/api/anime/${query}`)
   search = search.data
