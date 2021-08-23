@@ -22,7 +22,7 @@ module.exports.run = async (client, passedOptions, interaction) => {
        {resolusi: ..., link: [ {platform: ..., link: ...}, {...} ] }
       ]
     */
-   let data = {name: `**${resolusi.resolusi}**`, value: resolusi.map(a => `[${a.platform}](${a.link})`).join('\n'), inline: true}
+   let data = {name: `**${resolusi.resolusi}**`, value: resolusi.link_download.map(a => `[${a.platform}](${a.link})`).join('\n'), inline: true}
    oriPlaceHolder.push(data)
   }
   
