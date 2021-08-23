@@ -13,7 +13,7 @@ class SlashCommand {
       options: data.options
     }
     
-    let req = await this.client.api.applications(this.client.id).commands.post({
+    let req = await this.client.api.applications(this.client.user.id).commands.post({
       data: commandData
     }).catch(err => {
       console.log(err)
