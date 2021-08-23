@@ -1,6 +1,7 @@
 const axios = require('axios');
 module.exports.name = 'kusonime'
 module.exports.cooldown = 60
+module.exports.description = 'download anime dari kusonime'
 module.exports.options = [{
   name: 'query',
   description: 'anime yang mau dicari',
