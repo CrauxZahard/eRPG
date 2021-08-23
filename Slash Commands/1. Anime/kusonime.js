@@ -33,7 +33,7 @@ module.exports.run = async (client, passedOptions, interaction) => {
                                         {name: 'Type', value: search.type, inline: true},
                                         {name: 'Status', value: search.status, inline: true},
                                         {name: 'Rating', value: search.score, inline: true},
-                                        {name: 'Durasi', value: search.durasi, inlime: true},
+                                        {name: 'Durasi', value: search.durasi, inline: true},
                                         {name: 'Tanggal Rilis', value: search.release, inline: true}
                                         ],
                               thumbnail: {url: search.thumbnail} }, {
