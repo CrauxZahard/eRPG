@@ -1,6 +1,7 @@
 const fs = require('fs')
 const {Collection} = require('discord.js')
 module.exports.name = 'reload'
+module.exports.description = 'reload a command'
 module.exports.options = [{name: 'name',
                           description: 'the command name to reload (\'all\' to reload all commands with that type)',
                           required: true,
