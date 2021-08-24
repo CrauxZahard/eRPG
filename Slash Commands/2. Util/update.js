@@ -6,7 +6,7 @@ module.exports.options = [{name: 'reload',
                           description: 'whether to auto reload upon updating files',
                           type: 5,
                           required: false}]
-module.exports.run = async (client, passedOptions, interaction) {
+module.exports.run = async (client, passedOptions, interaction) => {
   if(interaction.user.id != '694573382380945529') return interaction.reply({content: 'you aren\'t my developer, b-baka!', ephemeral: true})
   
   await cmd.run('git pull', (err, data, sttder) => {
