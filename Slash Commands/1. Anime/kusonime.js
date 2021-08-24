@@ -37,7 +37,7 @@ module.exports.run = async (client, passedOptions, interaction) => {
                                         {name: 'Tanggal Rilis', value: search.release, inline: true}
                                         ],
                               thumbnail: {url: search.thumbnail} }, {
-                                title: 'link download',
+                                author: {name: 'Link Download', url: undefined},
                                 color: 'RANDOM',
                                 fields: oriPlaceHolder,
                                 image: {url: search.thumbnail}
