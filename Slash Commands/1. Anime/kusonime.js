@@ -18,8 +18,8 @@ module.exports.run = async (client, passedOptions, interaction) => {
   
   for(const resolusi of search.list_download[0][1]) {
     /*[
-       {resolusi: ..., link: [ {platform: ..., link: ...}, {...} ] },
-       {resolusi: ..., link: [ {platform: ..., link: ...}, {...} ] }
+       {resolusi: ..., link_download: [ {platform: ..., link: ...}, {platform: ..., link: ...}, { ... } ] },
+       {resolusi: ..., link_download: [ {platform: ..., link: ...}, {platform: ..., link: ...}, { ... } ] }
       ]
     */
    let data = {name: `**${resolusi.resolusi}**`, value: resolusi.link_download.map(a => `[${a.platform}](${a.link})`).join('\n'), inline: true}
