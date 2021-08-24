@@ -15,7 +15,7 @@ module.exports.run = async (client, passedOptions, interaction) => {
     console.log(`sttder: ${sttder}`)
   })
   
-  if(passedOptions[0].value) {
+  if(passedOptions[0]?.value) {
     //client.slashCommand.get()
   }
   
