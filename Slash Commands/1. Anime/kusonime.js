@@ -26,7 +26,7 @@ module.exports.run = async (client, passedOptions, interaction) => {
   }
   
   interaction.reply({embeds: [{author: {name: search.title,  url: undefined},
-                              description: search.sinopsis.slice(0, 20048) ,
+                              description: search.sinopsis.slice(0, 2048) ,
                                color: 'RANDOM',
                                fields: [{name: 'Genre', value: search.genre.map(g => g.name).join(', '), inline: false},
                                         {name: 'Type', value: search.type, inline: true},
