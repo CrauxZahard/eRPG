@@ -1,4 +1,5 @@
 const fs = require('fs')
+const {Collection} = require('discord.js')
 module.exports.name = 'reload'
 module.exports.options = [{name: 'name',
                           description: 'the command name to reload (\'all\' to reload all commands with that type)',
@@ -26,20 +27,38 @@ module.exports.run = async (client, passedOptions, interaction) => {
   
   if(choice == 'slash') {
     if(commandName == 'all') {
-      const deleted = client.slashCommand.clear()
+      client.slashCommand.clear()
+      client.slashCommand = new Collection()
       let mainFolder = fs.readdirSync('./Slash Commands/');
       for (const folder of mainFolder) {
         const files = fs.readdirSync(`./Slash Commands/${folder}/`)
         for (const file of files) {
           const command = require(`../Slash Commands/${folder}/${file}`)
           client.slashCommand.set(command.name, command)
-        }
+         }
        }
     }
+    
+    else {
+      let mainFolder = fs.readdirSync('./Slash Commands/');
+      for (const folder of mainFolder) {
+        const files = fs.readdirSync(`./Slash Commands/${folder}/`)
+        for (const file of files) {
+          const command = require(`../Slash Commands/${folder}/${file}`)
+          if(command.name == commandName) {
+            client.slashCommand.set(command.name, command)
+            return interaction.reply('success reloaded command. path: ' + `../Slash Commands/${folder}/${file}`)
+          }
+         }
+       }
+      return interaction.reply(':x: there is no command with that name.')
+    }
   }
+  
   else if(choice == 'button') {
     
   }
+  
   else if(choice == 'select') {
     
   }
