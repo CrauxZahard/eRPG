@@ -19,7 +19,7 @@ class SlashCommand {
       console.log(err)
       return;
     })
-    return console.log(req)
+    return req
   }
   
   async updateCommand(commandId, newData) {
@@ -41,11 +41,12 @@ class SlashCommand {
   }
   
   async bulkOverwrite(commandList) {
-    await axios.put(`https://discord.com/api/v8/applications/866931644983148554/commands`, commandList, {
+    const result = await axios.put(`https://discord.com/api/v8/applications/866931644983148554/commands`, commandList, {
       headers: {
         Authorization: `Bot ${token}`
       }
     })
+    return result
   }
 }
 
