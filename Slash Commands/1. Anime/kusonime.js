@@ -11,8 +11,8 @@ module.exports.options = [{
 module.exports.run = async (client, passedOptions, interaction) => {
   let query = passedOptions[0].value.split(' ').join('-')
   let search = await axios.get(`http://posantai.bugs.today/kusonime/api/anime/${query}`)
-  if(!search) return interaction.reply(':x: ga ada judul kek gitu.')
   search = search.data
+  if(!search.success) return interaction.reply(':x: ga ada judul kek gitu.')
   
   let oriPlaceHolder = []
   
