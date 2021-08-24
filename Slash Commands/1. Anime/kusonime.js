@@ -26,7 +26,7 @@ module.exports.run = async (client, passedOptions, interaction) => {
    oriPlaceHolder.push(data)
   }
   
-  interaction.reply({embeds: [{title: search.title,
+  interaction.reply({embeds: [{author: {name: search.title,  url: undefined},
                               description: sinopsis,
                                color: 'RANDOM',
                                fields: [{name: 'Genre', value: search.genre.map(g => g.name).join(', '), inline: false},
@@ -39,7 +39,8 @@ module.exports.run = async (client, passedOptions, interaction) => {
                               thumbnail: {url: search.thumbnail} }, {
                                 title: 'link download',
                                 color: 'RANDOM',
-                                fields: oriPlaceHolder 
+                                fields: oriPlaceHolder,
+                                image: {url: search.thumbnail}
                               }]
                    })
 }
