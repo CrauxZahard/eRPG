@@ -1,7 +1,7 @@
 const fs = require('fs')
 const SlashCommand = require('../Util/SlashCommand.js')
 const { Collection } = require('discord.js')
-module.exports = client => {
+module.exports = async client => {
   const slash = new SlashCommand(client)
   client.slashCommand = new Collection()
   let overwriteCommandData = []
