@@ -15,5 +15,5 @@ module.exports = async client => {
     }
   }
   const result = await slash.bulkOverwrite(overwriteCommandData)
-  client.channels.cache.get('807798782594383882').send(result)
+  console.log(result)
 }
