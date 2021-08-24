@@ -11,10 +11,9 @@ module.exports.run = async (client, passedOptions, interaction) => {
   
   await cmd.run('git pull', (err, data, sttder) => {
     if(err) return interaction.reply({content: 'an error has occureed! ' + err.message, ephemeral: true})
-    console.log(`data: ${data}`)
-    console.log(`sttder: ${sttder}`)
+    if(data == 'Already up to date.') return interaction.reply({content: 'uh, ini udah versi terbaru kk', ephemeral: true})
+    if(data.startsWith('Updating')) return interaction.reply({content: 'horeee! update sudah berhasil!\n' + data.split('Updating')[1].split('Fast-forward')[1] })
   })
-  
   if(passedOptions[0]?.value) {
     //client.slashCommand.get()
   }
