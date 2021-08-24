@@ -12,7 +12,6 @@ module.exports.run = async (client, passedOptions, interaction) => {
   let query = passedOptions[0].value.split(' ').join('-')
   let search = await axios.get(`http://posantai.bugs.today/kusonime/api/anime/${query}`)
   search = search.data
-  let sinopsis = search.sinopsis.length > 150 ? search.sinopsis.slice(0, 150) + '...' : search.sinopsis
   
   let oriPlaceHolder = []
   
@@ -27,7 +26,7 @@ module.exports.run = async (client, passedOptions, interaction) => {
   }
   
   interaction.reply({embeds: [{author: {name: search.title,  url: undefined},
-                              description: sinopsis,
+                              description: search.sinopsis.slice(0, 20048) ,
                                color: 'RANDOM',
                                fields: [{name: 'Genre', value: search.genre.map(g => g.name).join(', '), inline: false},
                                         {name: 'Type', value: search.type, inline: true},
