@@ -15,5 +15,5 @@ module.exports = async client => {
     }
   }
   const result = await slash.bulkOverwrite(overwriteCommandData)
-  console.log(result.response)
+  return result
 }
