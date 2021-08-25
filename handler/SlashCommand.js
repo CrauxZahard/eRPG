@@ -2,7 +2,6 @@ const fs = require('fs')
 const { Collection } = require('discord.js')
 module.exports = client => {
   client.slashCommand = new Collection()
-  let overwriteCommandData = []
   let mainFolder = fs.readdirSync('./Slash Commands/');
   for (const folder of mainFolder) {
     const files = fs.readdirSync(`./Slash Commands/${folder}/`)
