@@ -24,6 +24,7 @@ module.exports.options = [{name: 'name',
 
 module.exports.run = async (client, passedOptions, interaction) => {
   let choice = passedOptions[1]?.value ?? 'slashCommand'
+  console.log(passedOptions)
   const path = __dirname + choice == 'slashCommand' ? '../../Slash Commands/' : choice == 'buttonCommand' ? '../../Button Commands/' : '../../Select Menus'
   
   if(passedOptions[0].value == 'all') {
