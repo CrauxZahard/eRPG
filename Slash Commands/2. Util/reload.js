@@ -25,7 +25,10 @@ module.exports.options = [{name: 'name',
 module.exports.run = async (client, passedOptions, interaction) => {
   let choice = passedOptions[1]?.value ?? 'slashCommand'
   const path = __dirname + choice == 'slashCommand' ? '../../Slash Commands/' : choice == 'buttonCommand' ? '../../Button Commands/' : '../../Select Menus'
-  
+  console.log('choice: ' + choice + '\n\n')
+  console.log('client.slashCommand: ' + client.slashCommand + '\n\n')
+  console.log('client[\'slashCommand\']: ' +  client['slashCommand'] + '\n\n')
+  console.log('client[choice]: ' + client[choice])
   if(passedOptions[0].value == 'all') {
     client[choice].clear()
     client[choice] = new Collection()
