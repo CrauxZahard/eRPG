@@ -24,7 +24,7 @@ module.exports.options = [{name: 'name',
 
 module.exports.run = async (client, passedOptions, interaction) => {
   let choice = passedOptions[1]?.value ?? 'slashCommand'
-  const path = choice == 'slashCommand' ? '../../Slash Commands/' : choice == 'buttonCommand' ? '../../Button Commands/' : '../../Select Menus/'
+  const path = choice == 'slashCommand' ? '../Slash Commands/' : choice == 'buttonCommand' ? '../Button Commands/' : '../Select Menus/'
   
   if(passedOptions[0].value == 'all') {
     client[choice].clear()
