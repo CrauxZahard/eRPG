@@ -7,7 +7,7 @@ module.exports = client => {
     const files = fs.readdirSync(`./Slash Commands/${folder}/`)
     for (const file of files) {
       const command = require(`../Slash Commands/${folder}/${file}`)
-      client.slashCommand.set(command.name, command)
+      client['slashCommand'].set(command.name, command)
     }
   }
 }
