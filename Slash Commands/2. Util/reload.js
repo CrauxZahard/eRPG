@@ -24,16 +24,16 @@ module.exports.options = [{name: 'name',
 
 module.exports.run = async (client, passedOptions, interaction) => {
   let choice = passedOptions[1]?.value ?? 'slashCommand'
-  const path = choice == 'slashCommand' ? '../Slash Commands/' : choice == 'buttonCommand' ? '../Button Commands/' : '../Select Menus/'
+  const path = choice == 'slashCommand' ? '../../Slash Commands' : choice == 'buttonCommand' ? '../../Button Commands' : '../../Select Menus'
   
   if(passedOptions[0].value == 'all') {
     client[choice].clear()
     client[choice] = new Collection()
     const mainFolder = fs.readdirSync(path)
     for(const folder of mainFolder) {
-      const files = fs.readdirSync(`${path}${folder}/`)
+      const files = fs.readdirSync(`${path}/${folder}/`)
       for(const file of files) {
-        const command = require(`${path}${folder}/${file}`)
+        const command = require(`${path}/${folder}/${file}`)
         client[choice].set(command.name, command)
       }
     }
@@ -45,12 +45,12 @@ module.exports.run = async (client, passedOptions, interaction) => {
     if(!deleted) return interaction.reply(`command with name \`${passedOptions[0].value}\` doesn't exist`)
     const mainFolder = fs.readdirSync(path)
     for(const folder of mainFolder) {
-      const files = fs.readdirSync(`${path}${folder}/`)
+      const files = fs.readdirSync(`${path}/${folder}/`)
       for(const file of files) {
-        const command = require(`${path}${folder}/${file}`)
+        const command = require(`${path}/${folder}/${file}`)
         if(command.name == passedOptions[0].value) {
           client[choice].set(command.name, command)
-          return interaction.reply('success reloaded that command. path: ' + path + folder + '/' + file)
+          return interaction.reply('success reloaded that command. path: ' + path + '/' + folder + '/' + file)
         }
       }
     }
